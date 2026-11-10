@@ -1,0 +1,36 @@
+import java.util.HashSet;
+
+public class HappyNumber {
+
+    public boolean isHappy(int n) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        while (n != 1) {
+
+            // Check whether number is repeated
+            if (set.contains(n)) {
+                return false;
+            }
+
+            // Store the number
+            set.add(n);
+
+            int sum = 0;
+
+            // Calculate sum of squares of digits
+            while (n > 0) {
+
+                int digit = n % 10;
+
+                sum = sum + (digit * digit);
+
+                n = n / 10;
+            }
+
+            n = sum;
+        }
+
+        return true;
+    }
+}
